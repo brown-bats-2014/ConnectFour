@@ -1,7 +1,48 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  //EventListener
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $("#columns").on( "click", function (e) {
+    e.preventDefault();
+    //counter for altenating players
+    var counter = 1
+    var notDone = true
+    // Alternating Player
+    while (notDone) {
+      // Player1
+      if (counter % 2 == 0) {
+        User1.dropPiece();
+        counter++;
+      };
+      // Player2
+      else {
+        User2.dropPiece();
+        counter++;
+      };
+
+    };
+  });
+
+
+  // Board
+  var Board = function () {
+
+  };
+  //
+
+  // User1
+  var User1 = function () {
+    this.dropPiece = function () {
+
+    };
+  };
+  //
+
+  // User2
+  var User2 = function () {
+    this.dropPiece = function () {
+
+    };
+  };
+  //
+
 });
