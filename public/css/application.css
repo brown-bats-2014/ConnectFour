@@ -1,7 +1,6 @@
 .connect_four{
 }
 .connect_four_board {
-  border: 1px solid black;
   min-width:30px;
   min-height:200px;
   margin-left:auto;
@@ -18,13 +17,22 @@ tr{
   min-width:50px;
   min-height:200px;
 }
+.long-arrow::after{
+
+  font-family: FontAwesome;
+  content: "\f177";
+  font-size:70px;
+  padding-bottom:30px;
+  border-spacing:0px;
+  position:relative;
+  top:15px;
+}
 
 .circle{
    border: 1px solid black;
   width:100px;
   height:100px;
   border-radius:50px;
-
 }
 .yellow{
   background-color:yellow;
