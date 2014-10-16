@@ -1,26 +1,27 @@
 $(document).ready(function() {
   //EventListener
-
-  $("#columns").on( "click", function (e) {
+  for (var i = 0; i < 42; i++)
+  $("tr").on( "click", function (e) {
     e.preventDefault();
-    //counter for altenating players
+    // //counter for altenating players
     var counter = 1
     var notDone = true
-    var columnId = this.
-    // Alternating Player
-    while (notDone) {
-      // Player1
-      if (counter % 2 == 0) {
-        User2.dropPiece();
-        counter++;
-      };
-      // Player2
-      else {
-        User1.dropPiece();
-        counter++;
-      };
-
-    };
+    var column = this
+    var columnId = this.id
+    // // Alternating Player
+    // while (notDone) {
+    //   // Player1
+    //   if (counter % 2 == 0) {
+    //     User2.dropPiece();
+    //     counter++;
+    //   };
+    //   // Player2
+    //   else {
+    //     User1.dropPiece();
+    //     counter++;
+    //   };
+    debugger;
+    // };
   });
 
 
