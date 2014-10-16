@@ -1,0 +1,11 @@
+.connect_four_board, td, tr{
+  border: 1px solid black;
+  min-width:30px;
+  min-height:300px;
+}
+.yellow{
+  background-color:yellow;
+}
+.red{
+  background-color:red;
+}
