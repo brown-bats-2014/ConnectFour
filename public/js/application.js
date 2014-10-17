@@ -12,7 +12,7 @@ $(document).ready(function() {
       if (counter % 2 == 0) {
         User1.dropPiece();
         counter++;
-      };
+      }
       // Player2
       else {
         User2.dropPiece();
