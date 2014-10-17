@@ -35,30 +35,41 @@ Controller.prototype.attachEvents = function(){
     e.preventDefault();
 
     //counter for altenating players
-    var notDone = true;
     var column = this;
     var columnId = this.id;
 
     // Alternating Player
-      //Player1
+      //Player2
       if (controller.counter % 2 == 0) {
         var column1 = column.children;
         var filled = $("td").has("div");
         var available = $(column1).not(filled);
         var $lastSpace = $(available).first();
         controller.view.dropPiece({player: 2, location: $lastSpace});
+        var ajaxResponse = $.ajax({
+          url: '/ajax',
+          type: 'post',
+          data: {columnId: columnId}
+        });
+        // ajaxResponse.done(alert('hi'));
         controller.game.addPiece({player: 2, columnId: columnId});
         console.log(controller.game.gameOver());
         controller.counter += 1;
 
       }
-      // Player2
+      // Player1
       else {
         var column2 = column.children;
         var filled = $("td").has("div");
         var available = $(column2).not(filled);
         var $lastSpace = $(available).first();
         controller.view.dropPiece({player: 1, location: $lastSpace});
+        var ajaxResponse =
+          $.ajax({
+            url: '/ajax',
+            type: 'post',
+            data: {columnId: columnId}
+          });
         controller.game.addPiece({player: 1, columnId: columnId});
         console.log(controller.game.gameOver());
         controller.counter += 1;
@@ -66,12 +77,19 @@ Controller.prototype.attachEvents = function(){
       } // while loop when game done
     if(controller.game.gameOver() !== false)
       $("tr").off("click");
+
   });
 };
 
 // if win
 
+var moveP1 = function () {
 
+};
+
+var moveP2 = function () {
+
+}
 
 
 
