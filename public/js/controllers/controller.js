@@ -3,7 +3,7 @@ var Controller = function(options) {
   this.view = new options.view({
     container: '.connect_four_board'
   })
-  // this.game = new Game();
+  this.game = new Game();
   this.counter = 1;
   this.initialize();
 
@@ -40,32 +40,32 @@ Controller.prototype.attachEvents = function(){
     var columnId = this.id;
 
     // Alternating Player
-      // while (game.gameOver === false) {
-
+    while (controller.game.gameOver() === false) {
       //Player1
       if (controller.counter % 2 == 0) {
-        var column = column.children;
+        var column1 = column.children;
         var filled = $("td").has("div");
-        var available = $(column).not(filled);
+        var available = $(column1).not(filled);
         var $lastSpace = $(available).first();
         controller.view.dropPiece({player: 2, location: $lastSpace});
         controller.counter += 1;
-
-        this.model.addPiece({player: 2, columnId: columnId});
+        debugger;
+        controller.game.addPiece({player: 2, columnId: columnId});
 
       }
       // Player2
       else {
-        var column = column.children;
+        debugger;
+        var column2 = column.children;
         var filled = $("td").has("div");
-        var available = $(column).not(filled);
+        var available = $(column2).not(filled);
         var $lastSpace = $(available).first();
-        controller.view.dropPiece({player: 1, location: $lastSpace});
+        controller.game.addPiece({player: 1, columnId: columnId});
         controller.counter += 1;
 
         // this.model.addPiece({player: 1, columnId: columnId});
       }
-    // }; // while loop when game done
+    }; // while loop when game done
   });
 };
 
