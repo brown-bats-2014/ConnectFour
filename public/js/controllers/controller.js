@@ -51,6 +51,11 @@ Controller.prototype.attachEvents = function(){
           type: 'post',
           data: {columnId: columnId}
         });
+        ajaxResponse.done(renderBoard);
+        function renderBoard (resp) {
+          console.log(resp)
+          debugger;
+        };
         // ajaxResponse.done(alert('hi'));
         controller.game.addPiece({player: 2, columnId: columnId});
         console.log(controller.game.gameOver());
@@ -70,6 +75,11 @@ Controller.prototype.attachEvents = function(){
             type: 'post',
             data: {columnId: columnId}
           });
+        ajaxResponse.done(renderBoard);
+        function renderBoard (resp) {
+          console.log(resp)
+          debugger;
+        };
         controller.game.addPiece({player: 1, columnId: columnId});
         console.log(controller.game.gameOver());
         controller.counter += 1;
