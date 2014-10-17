@@ -40,7 +40,6 @@ Controller.prototype.attachEvents = function(){
     var columnId = this.id;
 
     // Alternating Player
-    // while (controller.game.gameOver() === false) {
       //Player1
       if (controller.counter % 2 == 0) {
         var column1 = column.children;
@@ -64,8 +63,9 @@ Controller.prototype.attachEvents = function(){
         console.log(controller.game.gameOver());
         controller.counter += 1;
 
-      }
-    // }; // while loop when game done
+      } // while loop when game done
+    if(controller.game.gameOver() !== false)
+      $("tr").off("click");
   });
 };
 

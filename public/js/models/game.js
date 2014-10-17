@@ -47,9 +47,13 @@ Game.prototype.addPiece = function(data){
       {
         changed = true;
         this.board[column][i-1] = player;
+        break;
       }
   }
-
+  if(changed === false)
+  {
+    this.board[column][this.board[column].length-1] = player;
+  }
 }
 function evaluateDiag(nested_array)
 {
