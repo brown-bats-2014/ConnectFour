@@ -40,7 +40,7 @@ Controller.prototype.attachEvents = function(){
     var columnId = this.id;
 
     // Alternating Player
-    while (controller.game.gameOver() === false) {
+    // while (controller.game.gameOver() === false) {
       //Player1
       if (controller.counter % 2 == 0) {
         var column1 = column.children;
@@ -48,24 +48,24 @@ Controller.prototype.attachEvents = function(){
         var available = $(column1).not(filled);
         var $lastSpace = $(available).first();
         controller.view.dropPiece({player: 2, location: $lastSpace});
-        controller.counter += 1;
-        debugger;
         controller.game.addPiece({player: 2, columnId: columnId});
+        console.log(controller.game.gameOver());
+        controller.counter += 1;
 
       }
       // Player2
       else {
-        debugger;
         var column2 = column.children;
         var filled = $("td").has("div");
         var available = $(column2).not(filled);
         var $lastSpace = $(available).first();
+        controller.view.dropPiece({player: 1, location: $lastSpace});
         controller.game.addPiece({player: 1, columnId: columnId});
+        console.log(controller.game.gameOver());
         controller.counter += 1;
 
-        // this.model.addPiece({player: 1, columnId: columnId});
       }
-    }; // while loop when game done
+    // }; // while loop when game done
   });
 };
 

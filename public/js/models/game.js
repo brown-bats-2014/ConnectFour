@@ -38,7 +38,7 @@ Game.prototype.gameOver = function(){
     return col_results
 }
 Game.prototype.addPiece = function(data){
-  var column = data.columnId
+  var column = (data.columnId)-1
   var player = data.player
   var changed = false;
   for(i=0; i<this.board[column].length; i++ )
