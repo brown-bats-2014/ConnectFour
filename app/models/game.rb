@@ -16,9 +16,7 @@ class Game < ActiveRecord::Base
       eval "row.#{col} = #{@@current_player}"
       row.save
     end
-    p @@current_player
     self.switch_player
-    p @@current_player
   end
 
   def self.switch_player
@@ -27,6 +25,19 @@ class Game < ActiveRecord::Base
   end
 
   def self.gameOver
+
   end
 
+
+  def self.reset
+    Game.all.each do |row|
+      row.col0 = 0;
+      row.col1 = 0;
+      row.col2 = 0;
+      row.col3 = 0;
+      row.col4 = 0;
+      row.col5 = 0;
+      row.col6 = 0;
+    end
+  end
 end
