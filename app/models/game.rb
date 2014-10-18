@@ -10,7 +10,6 @@ class Game < ActiveRecord::Base
     if row.length == 0
       last_row = Game.last
       eval "last_row.#{col} = #{@@current_player}"
-      puts "last_row.#{col} = #{@@current_player}"
       last_row.save
     else
       eval "row.#{col} = #{@@current_player}"
@@ -25,9 +24,41 @@ class Game < ActiveRecord::Base
   end
 
   def self.gameOver
+    gameboard = Game.all.as_json.to_a
+    nested_game = []
+    gameboard.each do |col|
+      col.delete("id")
+      nested_game << col.values
+    end
+    col_results = evaluateLinear(nested_game)
+    if !col_results
+      return evaluateLinear(nested_game.transpose)
+    else
+     return col_results
 
   end
 
+  def self.evaluateLinear(board)
+    board.each do |col|
+      counter = 0
+      player = nil
+      col.delete("id")
+      col.values.each do |element|
+        if element == 0
+          counter = 0
+        elsif player == element
+          counter +=1
+        else
+          player = element
+          counter = 1
+        end
+        if counter == 4
+          return player
+        end
+      end
+    end
+    return false
+  end
 
   def self.reset
     Game.all.each do |row|
